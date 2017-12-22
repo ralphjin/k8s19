@@ -30,3 +30,6 @@ for imageName in ${images[@]} ; do
   docker tag  $RALPHJIN_URL/$name $GCR_URL/$imageName 
   docker pull $RALPHJIN_URL/$name
 done
+# remove --pull from below files:
+#    build/debian-iptables/Makefile
+
