@@ -37,6 +37,8 @@ done
 #    build/pause/Makefile
 #    build/lib/release.sh
 #    build/build-image/cross/Makefile
+#    /root/kubernetes/cluster/images/hyperkube/Makefile
+#    /root/kubernetes/cluster/images
 
 # what they look like before removing --pull
 #build-image/cross/Makefile:	docker build --pull -t k8s.gcr.io/$(IMAGE):$(TAG) .
@@ -46,5 +48,13 @@ done
 #debian-hyperkube-base/Makefile:	docker build --pull -t $(REGISTRY)/$(IMAGE)-$(ARCH):$(TAG) $(TEMP_DIR)
 #lib/release.sh:        "${DOCKER[@]}" build --pull -q -t "${docker_image_tag}" ${docker_build_path} >/dev/null
 #pause/Makefile:	docker build --pull -t $(IMAGE):$(TAG) --build-arg ARCH=$(ARCH) .
+#[root@virt-v2v images]# grep -r pull *
+#etcd/Makefile:	docker build --pull -t $(REGISTRY)/etcd-$(ARCH):$(REGISTRY_TAG) $(TEMP_DIR)
+#etcd-empty-dir-cleanup/Makefile:	docker build --pull -t $(IMAGE):$(TAG) .
+#etcd-version-monitor/etcd-version-monitor.go:	// This will be replaced by https://github.com/coreos/etcd/pull/8960 in etcd 3.3.
+#hyperkube/Makefile:	docker build --pull -t ${REGISTRY}/hyperkube-${ARCH}:${VERSION} ${TEMP_DIR}
+#kubemark/Makefile:	docker build --pull -t $(REGISTRY)/$(PROJECT)/kubemark .
+#[root@virt-v2v images]# pwd
+#/root/kubernetes/cluster/images
 
 
