@@ -3,10 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-KUBE_VERSION=v1.7.5
+KUBE_VERSION=v1.9.0
 KUBE_PAUSE_VERSION=3.0
-ETCD_VERSION=3.0.17
-DNS_VERSION=1.14.4
+ETCD_VERSION=3.1.10
+DNS_VERSION=1.14.7
 
 GCR_URL=gcr.io/google_containers
 ALIYUN_URL=registry.cn-hangzhou.aliyuncs.com/muxi
@@ -23,6 +23,7 @@ k8s-dns-dnsmasq-nanny-amd64:${DNS_VERSION})
 
 
 for imageName in ${images[@]} ; do
+  rm -fr $imageName
   mkdir $imageName
   echo "FROM $GCR_URL/$imageName"> $imageName/Dockerfile 
   echo "MAINTAINER ralphjin <ralphjin@outlook.com>" >> $imageName/Dockerfile
